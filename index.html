@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ASEGÚRATE + (Copy)</title>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--page:#DDE8E3;--ink:#12313A;--y:#FFC20E;--o:#F26B21;--g:#1E9E5A;--r:#D62839;--b:#1F6FD1;--t:#0F766E;--bg:#F4F7F5;--mut:#5B6F73;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--page:#0B1A1F}}
+:root[data-theme="dark"]{--page:#0B1A1F}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--page);font-family:"Atkinson Hyperlegible",system-ui,sans-serif;color:var(--ink);display:flex;align-items:center;justify-content:center}
+#phone{width:390px;height:min(800px,100%);background:var(--bg);border-radius:34px;border:8px solid #12313A;overflow:hidden;display:flex;flex-direction:column;position:relative}
+@media(max-width:430px){#phone{width:100%;border-radius:0;border:0;height:100%}}
+header{background:var(--ink);color:#fff;padding:16px 18px 14px;border-bottom:5px solid var(--y)}
+header h1{margin:0;font-size:22px;letter-spacing:.3px}
+header p{margin:2px 0 0;font-size:14px;opacity:.85}
+main{flex:1;overflow-y:auto;padding:16px}
+nav{display:flex;background:#fff;border-top:2px solid #dbe4e0}
+nav button{flex:1;border:0;background:none;padding:9px 0 8px;font:inherit;font-size:12px;color:var(--mut);cursor:pointer}
+nav button b{display:block;font-size:22px;font-weight:400}
+nav button.on{color:var(--ink);font-weight:700}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.big{border:0;border-radius:18px;padding:16px 8px;color:#fff;font:inherit;font-size:16px;font-weight:700;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;min-height:104px;justify-content:center;box-shadow:0 4px 0 rgba(0,0,0,.22)}
+.big span{font-size:36px;line-height:1}
+.big:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(0,0,0,.22)}
+.o{background:var(--o)}.g{background:var(--g)}.b{background:var(--b)}.r{background:var(--r)}.t{background:var(--t)}.y{background:var(--y);color:var(--ink)}
+.card{background:#fff;border-radius:16px;padding:14px;margin-bottom:12px;border:1px solid #dbe4e0}
+.hero{background:var(--ink);color:#fff;border-radius:16px;padding:14px 16px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center}
+.hero strong{font-size:34px;color:var(--y);display:block;line-height:1}
+h2{font-size:19px;margin:0 0 10px}
+.lbl{font-weight:700;margin:12px 0 6px;font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid #c7d3ce;background:#fff;border-radius:999px;padding:9px 13px;font:inherit;font-size:15px;cursor:pointer}
+.chip.on{border-color:var(--ink);background:var(--y);font-weight:700}
+.chip.s1.on{background:#BFE8CF}.chip.s2.on{background:#FFE08A}.chip.s3.on{background:#F7A8AE}
+select,textarea{width:100%;font:inherit;font-size:16px;padding:11px;border-radius:12px;border:2px solid #c7d3ce;background:#fff;color:var(--ink)}
+.act{width:100%;border:0;border-radius:14px;padding:15px;font:inherit;font-size:18px;font-weight:700;color:#fff;background:var(--g);cursor:pointer;margin-top:14px}
+.act.alt{background:var(--b)}
+.row{display:flex;align-items:center;gap:12px;padding:12px 4px;border-bottom:1px solid #e6ece9;font-size:16px;cursor:pointer}
+.row:last-child{border:0}
+.box{width:30px;height:30px;border-radius:9px;border:3px solid #9fb1ab;display:grid;place-items:center;font-size:18px;color:#fff;flex:none}
+.row.on .box{background:var(--g);border-color:var(--g)}
+.bar{height:14px;background:#dbe4e0;border-radius:9px;overflow:hidden;margin:6px 0 4px}
+.bar i{display:block;height:100%;background:var(--g);transition:width .3s}
+.opt{display:block;width:100%;text-align:left;border:2px solid #c7d3ce;background:#fff;border-radius:12px;padding:13px;margin-bottom:9px;font:inherit;font-size:16px;cursor:pointer}
+.opt.ok{background:#BFE8CF;border-color:var(--g)}.opt.no{background:#F7A8AE;border-color:var(--r)}
+.photo{height:84px;border:3px dashed #9fb1ab;border-radius:14px;display:grid;place-items:center;font-size:16px;color:var(--mut);cursor:pointer;text-align:center}
+.photo.on{border-style:solid;border-color:var(--g);color:var(--g);background:#E6F6EC;font-weight:700}
+.done{text-align:center;padding:26px 10px}.done .ico{font-size:70px}
+.code{display:inline-block;background:var(--y);padding:6px 14px;border-radius:10px;font-weight:700;font-size:20px;margin:8px 0}
+#toast{position:absolute;left:16px;right:16px;bottom:84px;background:var(--ink);color:#fff;padding:13px 16px;border-radius:14px;font-size:15px;opacity:0;transform:translateY(10px);transition:.25s;pointer-events:none;border-left:6px solid var(--y)}
+#toast.show{opacity:1;transform:none}
+button:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--b);outline-offset:2px}
+</style>
+</head>
+<body>
+<div id="phone">
+  <header><h1>🛡️ ASEGÚRATE +</h1><p id="sub"></p></header>
+  <main id="main"></main>
+  <nav>
+    <button data-s="home"><b>🏠</b>Inicio</button>
+    <button data-s="report"><b>⚠️</b>Reportar</button>
+    <button data-s="check"><b>✅</b>Revisión</button>
+    <button data-s="sos"><b>🚨</b>Emergencia</button>
+  </nav>
+  <div id="toast"></div>
+</div>
+<script>
+const S={scr:"home",pts:120,streak:47,type:"",sev:"",loc:"",photo:false,chk:[0,0,0,0,0,0],epp:[0,0,0,0,0],q:0,ans:null,score:0,sent:null};
+const CHK=["Piso seco y despejado","Protecciones de la máquina colocadas","Salidas de emergencia libres","Extintor con sello vigente","Químicos con etiqueta clara","Mis herramientas están en buen estado"];
+const EPP=["🧤 Guantes","🥽 Lentes de seguridad","😷 Mascarilla","🥾 Botas antideslizantes","🎧 Tapones auditivos"];
+const TIPOS=[["💧","Piso mojado"],["⚙️","Máquina sin protección"],["☣️","Químico derramado"],["⚡","Cable o tablero"],["📦","Carga mal apilada"],["❓","Otro"]];
+const QZ=[["Ves un piso mojado. ¿Qué haces primero?",["Lo cruzo rápido","Coloco la señal y lo reporto","Espero a que se seque"],1],["¿Cuándo usas guantes de nitrilo?",["Al manipular químicos de limpieza","Nunca, estorban","Solo los viernes"],0],["¿A qué número llamas en una emergencia en Costa Rica?",["800","911","1322"],1]];
+const $=id=>document.getElementById(id);
+function toast(t){const e=$("toast");e.textContent=t;e.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove("show"),2400)}
+function go(s){S.scr=s;if(s==="report"){S.sent=null}render()}
+function add(n,m){S.pts+=n;toast("🏅 +"+n+" puntos. "+m)}
+const V={
+home:()=>`<div class="hero"><div><strong>${S.streak}</strong>días sin accidentes en tu área</div><div style="text-align:right"><strong>${S.pts}</strong>mis puntos</div></div>
+<div class="grid">
+<button class="big o" onclick="go('report')"><span>⚠️</span>Reportar peligro</button>
+<button class="big g" onclick="go('check')"><span>✅</span>Revisión del día</button>
+<button class="big b" onclick="go('epp')"><span>🦺</span>Mi equipo (EPP)</button>
+<button class="big y" onclick="go('learn')"><span>🎓</span>Mini capacitación</button>
+<button class="big r" onclick="go('sos')"><span>🚨</span>Emergencia</button>
+<button class="big t" onclick="go('pts')"><span>🏅</span>Mis logros</button></div>`,
+report:()=>S.sent?`<div class="done"><div class="ico">✅</div><h2>¡Gracias por avisar!</h2><p>Tu reporte llegó al supervisor y a Seguridad Ocupacional.</p><div class="code">${S.sent}</div><p>Te avisaremos cuando se corrija.</p><button class="act" onclick="go('home')">🏠 Volver al inicio</button></div>`:
+`<h2>⚠️ Reportar un peligro</h2><div class="lbl">1. ¿Qué viste?</div><div class="chips">${TIPOS.map(t=>`<button class="chip ${S.type===t[1]?'on':''}" onclick="S.type='${t[1]}';render()">${t[0]} ${t[1]}</button>`).join("")}</div>
+<div class="lbl">2. ¿Dónde?</div><select onchange="S.loc=this.value"><option value="">Elige el lugar…</option>${["Producción – Línea 1","Producción – Línea 2","Empaque","Bodega","Pasillo B","Comedor"].map(x=>`<option ${S.loc===x?'selected':''}>${x}</option>`).join("")}</select>
+<div class="lbl">3. ¿Qué tan grave es?</div><div class="chips"><button class="chip s1 ${S.sev==='Baja'?'on':''}" onclick="S.sev='Baja';render()">🟢 Baja</button><button class="chip s2 ${S.sev==='Media'?'on':''}" onclick="S.sev='Media';render()">🟡 Media</button><button class="chip s3 ${S.sev==='Alta'?'on':''}" onclick="S.sev='Alta';render()">🔴 Alta</button></div>
+<div class="lbl">4. Foto (opcional)</div><div class="photo ${S.photo?'on':''}" onclick="S.photo=!S.photo;render()">${S.photo?'📷 Foto agregada ✔':'📷 Toca para tomar una foto'}</div>
+<button class="act" style="background:var(--o)" onclick="send()">📨 Enviar reporte</button>`,
+check:()=>{const n=S.chk.filter(Boolean).length;return`<h2>✅ Revisión del día</h2><p style="margin:0;color:var(--mut)">Toma 2 minutos antes de empezar tu turno.</p><div class="bar"><i style="width:${n/6*100}%"></i></div><small>${n} de 6 revisados</small><div class="card" style="margin-top:10px">${CHK.map((c,i)=>`<div class="row ${S.chk[i]?'on':''}" onclick="S.chk[${i}]^=1;render()"><span class="box">${S.chk[i]?'✔':''}</span>${c}</div>`).join("")}</div><button class="act" onclick="finish()">${n===6?'🏁 Terminar revisión':'Faltan puntos por revisar'}</button>`},
+epp:()=>{const n=S.epp.filter(Boolean).length;return`<h2>🦺 Mi equipo de protección</h2><p style="margin:0;color:var(--mut)">Toca cada pieza cuando verifiques que está completa y en buen estado.</p><div class="bar"><i style="width:${n/5*100}%"></i></div><div class="card">${EPP.map((c,i)=>`<div class="row ${S.epp[i]?'on':''}" onclick="S.epp[${i}]^=1;render()"><span class="box">${S.epp[i]?'✔':''}</span>${c}</div>`).join("")}</div><button class="act alt" onclick="${n===5?"add(10,'Equipo completo.');go('home')":"toast('⚠️ Falta revisar piezas')"}">🦺 Confirmar mi equipo</button>`},
+learn:()=>{if(S.q>=3)return`<div class="done"><div class="ico">🎓</div><h2>¡Terminaste!</h2><p>Acertaste ${S.score} de 3.</p><button class="act" onclick="S.q=0;S.score=0;S.ans=null;go('home')">🏠 Volver al inicio</button></div>`;const[q,o,c]=QZ[S.q];return`<h2>🎓 Mini capacitación</h2><small>Pregunta ${S.q+1} de 3</small><div class="card" style="margin-top:8px"><b>${q}</b></div>${o.map((x,i)=>`<button class="opt ${S.ans!==null?(i===c?'ok':i===S.ans?'no':''):''}" onclick="ans(${i})">${x}</button>`).join("")}${S.ans!==null?`<button class="act alt" onclick="S.q++;S.ans=null;render()">Siguiente ▶</button>`:''}`},
+sos:()=>`<h2>🚨 Emergencia</h2><div class="grid" style="margin-bottom:12px">
+<a class="big r" style="text-decoration:none" href="tel:911"><span>🚑</span>Llamar al 911</a>
+<button class="big o" onclick="toast('📣 Brigada de emergencia avisada con tu ubicación')"><span>📣</span>Avisar a la brigada</button></div>
+<div class="card"><b>🧯 Extintor más cercano</b><br>Pasillo B, junto a la puerta 2</div>
+<div class="card"><b>🟢 Punto de reunión</b><br>Parqueo norte, frente al portón</div>
+<div class="card"><b>🧴 Derrame químico</b><br>1. Aléjate. 2. Avisa. 3. No lo toques sin equipo.</div>`,
+pts:()=>`<h2>🏅 Mis logros</h2><div class="hero"><div><strong>${S.pts}</strong>puntos</div><div style="font-size:42px">${S.pts>=150?'🥈':'🥉'}</div></div><div class="card"><div class="row">⚠️ Reportes enviados<b style="margin-left:auto">3</b></div><div class="row">✅ Revisiones completas<b style="margin-left:auto">12</b></div><div class="row">🎓 Capacitaciones<b style="margin-left:auto">4</b></div></div><p style="color:var(--mut)">Con 200 puntos ganas una insignia de Líder de Seguridad.</p>`
+};
+function send(){if(!S.type||!S.loc||!S.sev){toast("⚠️ Elige qué viste, dónde y qué tan grave es");return}S.sent="SEG-"+(1040+Math.floor(Math.random()*60));S.pts+=10;S.type=S.loc=S.sev="";S.photo=false;render();toast("🏅 +10 puntos por reportar")}
+function finish(){if(S.chk.every(Boolean)){S.chk=[0,0,0,0,0,0];add(15,"Revisión completa.");go('home')}else toast("Revisa todos los puntos para terminar")}
+function ans(i){if(S.ans!==null)return;S.ans=i;if(i===QZ[S.q][2]){S.score++;toast("✔ ¡Correcto!")}else toast("✖ Casi. La respuesta correcta está en verde");if(S.q===2&&S.score>1)S.pts+=10;render()}
+function render(){
+  const t={home:"Hola, Carlos · Planta de Producción",report:"Reporte de peligro",check:"Revisión diaria",epp:"Equipo de protección",learn:"Capacitación de 3 minutos",sos:"En caso de emergencia",pts:"Tu progreso"};
+  $("sub").textContent=t[S.scr];$("main").innerHTML=V[S.scr]();
+  document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.s===S.scr));
+}
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>go(b.dataset.s));
+render();
+</script>
+</body>
+</html>
